@@ -1,0 +1,16 @@
+function validateEmail(email) {
+    const atPosition = email.indexOf('@');
+    const dotPosition = email.lastIndexOf('.');
+
+    // Check if '@' is present and it's not the first character
+    // Check if '.' is present, after '@', and it's not the last character
+    if (atPosition < 1 || dotPosition <= atPosition + 1 || dotPosition >= email.length - 1) {
+        return false;
+    }
+
+    return true;
+}
+
+// Example usage
+console.log(validateEmail('example@gmail.com'));  // Outputs: true
+console.log(validateEmail('example.com'));        // Outputs: false

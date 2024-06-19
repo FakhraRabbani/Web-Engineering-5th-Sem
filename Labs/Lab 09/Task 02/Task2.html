@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Task 02</title>
+		<style>
+			.error{
+				color:red;
+			}
+		</style>
+		<script>
+
+			function validateName()
+			{
+				if (document.getElementById("name").value === "") {
+    					document.getElementById("nameError").textContent = "Please enter a name";
+  				} 
+				else{
+    					document.getElementById("nameError").textContent = "";
+  				}
+			}
+
+			function validateEmail()
+			{
+				if(document.getElementById("email").value === ""){
+					document.getElementById("emailError").textContent = "Please enter an email!";	
+  				} 
+				else{
+    					//Validate Email
+					if(!validEmail()){
+							document.getElementById("emailError").textContent = "Please enter a valid email";
+					}
+					else{
+						document.getElementById("emailError").textContent = "";
+					}
+				}
+			}
+			
+			function validEmail(){
+				const emailValue = document.getElementById("email").value;
+				const lengthOfEmail = emailValue.length;
+				const at = emailValue.indexOf('@');
+   				const dot = emailValue.lastIndexOf('.');
+
+				//dot < at + 2 same as dot <= at + 1
+				 if ((at < 1 || dot < 1 || dot <= at+ 1 || dot >= lengthOfEmail - 1 || at === lengthOfEmail - 1 || dot === lengthOfEmail - 1) && (!(at > 0 && dot > at+1))){
+        				return false;;
+    				}
+				else{
+					return true;
+				}
+    				
+			}
+
+
+
+
+		</script>
+	</head>
+	<body>
+    	<form>
+        	<table>
+            	<tr>
+                	<td><label for="name">Name:</label></td>
+                	<td><input type="text" id="name" onblur="validateName()"></td>
+                	<td><div id="nameError" class="error"></div></td>
+            	</tr>
+            	<tr>
+                	<td><label for="email">Email:</label></td>
+                	<td><input type="text" id="email" onblur="validateEmail()"></td>
+                	<td><div id="emailError" class="error"></div></td>
+            	</tr>
+            	<tr>
+                	<td><button type="submit">Submit</button></td>
+            	</tr>
+        	</table>
+    	</form>
+
+	</body>
+</html>

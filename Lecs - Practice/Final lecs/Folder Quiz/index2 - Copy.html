@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz 2</title>
+        <script>
+            function calculateArea(){
+                var lengthOne =document.getElementById("length1").value;;
+                var lengthTwo =document.getElementById("length2").value;
+                var output = document.getElementById("result");
+
+                var area = lengthOne * lengthTwo;
+
+                output.innerText = "Area is: " + area;
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <form onsubmit="event.preventDefault(); calculateArea();">
+            <h1>Area Calculator for Rectangles</h1>
+
+            <label for="length1">Side Length One</label><br>
+            <input type="number" id="length1">
+
+            <br><br>
+
+            <label for="length2">Side Length Two</label><br>
+            <input type="number" id="length2">
+            <br>
+
+            <button type="submit">Submit</button>
+
+            <div id="result"></div>
+
+        </form>
+    </body>
+</html>

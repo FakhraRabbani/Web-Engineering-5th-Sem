@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Sign Up (CMS)</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+	<form name="signup" action="signup" method="post">
+		
+	<div class="container">
+	
+		<h3>Welcome to Course Suite</h3>
+		
+		<label for="email">Enter your email: </label>
+		<input type="email" placeholder="Email" name="email" class="inputC" required>
+		
+		<label for="name">Enter your user name: </label>
+		<input type="text" placeholder="Name" name="user_name" class="inputC" required>
+		
+		<label for="pwd">Password: </label>
+		<input type="password" placeholder="Password" name="pwd" id="pass" class="inputC" required>
+		
+		<label for="c_pwd">Confirm Password: </label>
+		<input type="password" placeholder="Confirm Password" name="c_pwd" id="c_pass" class="inputC" required>
+		
+		<label for="typeUser">User Type: </label>
+            <select name="typeUser" class="inputC" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            
+         <br><br>
+            
+		<input type="submit" value="Sign Up" id="inputS">
+		
+		<div>
+			<p>Already have an account?</p>
+			<a href='login.html'>Log In</a>
+		</div>
+	</div>
+		<!-- Tomcat v8.5 Server -->
+	</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+import javax.swing;
+
+public class Calculator(){
+
+	public int sum(int num1, int num2){
+		return num1 + num2);
+	}
+
+	public static void main(String args[])
+	{
+		//Initialize numbers
+		String int1, int2;
+
+		int1 = JOptionpane.showInputDialog("Enter number 1: ");
+		int2 = JOptionpane.showInputDialog("Enter number 2: ");
+
+		try{
+
+		   int n1 = Integer.parse(int1);
+		   int n2 = Integer.parse(int2);
+
+		   JOptionpane.showMessageDialog(null, "Sum of " + n1 + n2 + " : " + sum(n1, n2));
+
+		}
+		
+		catch{
+
+		   JOptionPane.showMessageDialog(null, "Invalid input!!");
+		}
+
+		
+
+		
+	}
+
+
+}

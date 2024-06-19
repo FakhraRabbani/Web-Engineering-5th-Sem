@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Quiz 
+        </title>
+        <script>
+            function isPerfect(){
+                var numberInput = document.getElementById("num");
+                var output = document.getElementById("result");
+                var number = parseInt(numberInput.value);
+
+                
+                if(Number.isInteger(number) && number > 0){
+                    var sum = 0;
+                    for(var i = 1; i < number; i++)
+                    {
+                        if(number % i === 0)
+                        {
+                             sum = sum + i;
+                        }
+                    }
+
+                    if(sum === number){
+                        output.innerHTML = "Yes it is a perfect number";
+                    }
+                    else{
+                        output.innerText = "No it is not a perfect number";
+                    }
+                }
+                else{
+                        output.innerText = "plz enter a valid number";
+                }
+            }
+                
+        </script>
+    </head>
+    <body>
+        <h1>Perfect Number Checker</h1>
+        <form>
+            <label for="num">Enter a number:</label>
+            <input type="text" id="num" required>
+
+            <button type="button" onclick="isPerfect()">Find perfect number</button>
+        </form>
+
+        <div id="result"></div>
+    </body>
+</html>

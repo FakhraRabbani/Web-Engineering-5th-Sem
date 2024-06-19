@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Page</title>
+    <style>
+        .error { color: red; display: inline-block; } /* Make div inline for better layout */
+    </style>
+</head>
+<body>
+    <form name="employerform" onsubmit="return validate()">
+        <table>
+            <tr>
+                <p><font color=blue><b><u>Employers</u></b></font></p>
+            </tr>
+    
+            <tr>
+                <td align="right">Username:</td>
+                <td>
+                    <input type="text" name="uname">
+                    <div class="error" id="errorUname"></div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td align="right">Password:</td>
+                <td>
+                    <input type="password" name="pwd">
+                    <div class="error" id="errorPwd"></div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td align="right">Confirm Password:</td>
+                <td>
+                    <input type="password" name="cpwd">
+                    <div class="error" id="errorCpwd"></div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td align="right">Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">Female
+                    <div class="error" id="errorGender"></div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td align="right">Address:</td>
+                <td>
+                    <input type="text" name="address1">
+                    <div class="error" id="errorAddress"></div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td align="right">City:</td>
+                <td>
+                    <input type="text" name="city">
+                    <div class="error" id="errorCity"></div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td align="right">Country:</td>
+                <td>
+                    <select name="country">
+                        <option value=""></option>
+                        <option value="pakistan">Pakistan</option>
+                        <option value="India">India</option>
+                    </select>
+                    <div class="error" id="errorCountry"></div>
+                </td>
+            </tr>
+    
+            <tr> 
+                <td align="right">Telephone:</td> 
+                <td>
+                    <input type="text" name="phone" onkeypress="return letterNumber(event)">
+                    <div class="error" id="errorPhone"></div>
+                </td> 
+            </tr>
+    
+            <tr> 
+                <td align="right">Email:</td> 
+                <td>
+                    <input type="text" name="email">
+                    <div class="error" id="errorEmail"></div>
+                </td> 
+            </tr> 
+    
+            <tr>
+                <td align="right"></td>
+                <td><input type="submit" value="Signup"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

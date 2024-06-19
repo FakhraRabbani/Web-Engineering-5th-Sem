@@ -1,0 +1,202 @@
+import java.io.*;
+import java.util.*;
+
+class noAccountAvailbaleException extends Exception
+{
+
+	String message;
+	public noAccountAvailbaleException(String message)
+	{
+		this.message = message;
+	}
+
+	@Override
+	public void toString()
+	{
+		return "Exception Occurred: No account avaialble";
+	}
+
+	@Override
+	public String getMessage()
+	{
+		return this.message;
+	}
+}
+
+public class Bank
+{
+	public String name;
+	public int amount;
+	public String accountNumber;
+
+	//Constructor
+
+	public Bank(){}
+
+	Bank(String name, int amount, String accountNumber)
+	{
+		this.name = name;
+		this.amount = amount;
+		this.accountNumber = accountNumber;
+	}
+	
+	//Getters
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	public int getAmount()
+	{
+		return this.amount;
+	}
+
+	public String getAccountNumber()
+	{
+		return this.accountNumber;
+	}
+
+	//Setters
+	void setName(String name)
+	{
+		this.name = name;
+	}
+
+	void setAmount(int amount)
+	{
+		this.amount = amount;
+	}
+
+	void setAccountNumber(String accountNumber)
+	{
+		this.accountNumber = accountNumber;
+	}
+
+
+	//Add New Record Function
+	public void addNewRecord()
+	{
+		try
+		{
+			FileWriter fw = new FileWriter("records.txt", true);
+			PrintWriter pw = new PrintWriter(fw);
+
+			pw.println(newRecord.getName() + ";" + newRecord.getAccountNumber() + ";" + newRecord.getAmount());
+
+			pw.close();
+
+			System.out.println("Successfully added);
+		}
+		catch(IOException ioe)
+		{
+			System.out.println(ioe);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}	
+	}
+
+	//Transfer amount
+	public void transfer(String senderAccountNumber, String recepientAccountNumber, int amountToTransfer) throws noAccountAvailbaleException
+	{
+		try
+		{
+			FileWriter fw = new FileWriter("records.txt");
+			PrintWriter pw = new PrintWriter(fw);
+
+			boolean recepietntNotFound = false;
+		
+			while(in.readLine())
+			{
+			}
+
+			File tempFile = new File("temp.txt");		
+			File originalFile = new File("file.txt);
+
+			//BufferedReader br = new BufferedReader(new FileReader("file.txt");
+			//PrintWriter pw = new PrintWriter();
+
+			
+			
+				
+
+		}
+		catch(IOException ioe)
+		{
+			System.out.println(ioe);
+		}
+		catch(noAccountAvailbaleException nae)
+		{
+			nae.toString();
+		}
+		catch(Exception e)
+		{
+			s.toString();
+		}
+	}
+
+	public static void main(String args[])
+	{
+		Bank b = new Bank();
+
+		Scanner in = new Scanner(System.in);
+
+		try
+		{
+
+			while(true)
+			{
+
+				System.out.println("Enter 1 to add new account " + "\nEnter 2 to Transfer " + "\nEnter 3 to Exit ");
+				System.out.println("Enter your choice: ");
+
+				int choice = in.nextLine();
+
+	
+				switch(choice)
+				{
+					case 1:
+						System.out.println("Enter name: ");
+						String name = in.next();
+	
+						System.out.println("Enter account no: ");
+						String number = in.next();
+		
+						b.setName(name);
+						b.setAccountNumber(number);
+						b.setAmount(1000);
+
+						b.addNewRecord();
+
+						break;
+	
+	
+					case 2:
+						System.out.println("Enter recepient account no: ");
+						String recepientNo = in.next();
+
+						System.out.println("Enter sender account no: ");
+						String sendertNo = in.next();
+
+						System.out.println("Enter amount you want to transfer: ");
+						String amount = in.next();
+
+						b.transfer(senderNo, recepientNo, amount);
+		
+						break;			
+					
+
+					case 3:
+						System.exit(0);
+				}
+
+			}
+
+		}
+		
+	}
+
+}
+		
+	

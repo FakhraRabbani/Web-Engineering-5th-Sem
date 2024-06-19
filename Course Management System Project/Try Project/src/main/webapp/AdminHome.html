@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Home</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- 
+<script>
+
+	function checkAdminSession() {
+    var userType = sessionStorage.getItem('userType'); 
+    
+    if (userType !== 'admin') {
+        response.sendRedirect("login.html");
+    }
+}
+
+window.onload = checkAdminSession();
+</script>
+ -->
+
+ 
+</head>
+<body>
+        <form name="AdminHome" action="AdminHome" method="post">
+        <div class="container">
+            <h3 align="center">Welcome to CourseSuite Admin Panel</h3>
+                <a href="addCourse.html"> Add Course </a>
+                <br /><br />
+                <a href="editCourse.html"> Edit Course </a>
+                <br /><br />
+                <a href="removeCourse.html"> Remove Course </a>   
+                <br /><br />
+                <a href="./login.html"> Logout </a>
+                <br /><br />
+                <a href="Home.html"> Home </a>
+
+            </div>
+        </form>
+</body>
+</html>

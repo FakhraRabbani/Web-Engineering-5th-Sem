@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Calculator</title>
+	<style>
+
+		.btn{
+			background-color: green;		
+    			padding: 20px;
+    			margin: 1px;
+			font-size: 15px;
+			color:white;
+			border: 2px white;
+			border-radius: 1px;
+		}
+
+		#show{
+			padding: 25px;
+			width:12.5%;
+			margin-bottom:1px;
+    			border: 1px solid black;
+    			border-radius: 2px;
+    			text-align: right;
+    			font-size: 10px;
+		}
+
+		#calculator{
+			text-align: center;
+		}
+
+	</style>
+        <script>
+		let opeartor = '';
+		let left = '';
+		let right = '';
+
+		function clearInput() {
+    			document.getElementById('show').value = '';
+				opeartor = '';
+				left = '';
+				right = '';
+		}
+
+		function display(inputValue){
+			if((inputValue != '+') && (inputValue != '-') && (inputValue != '*') && (inputValue != '/')){
+				document.getElementById('show').value += inputValue;
+				left = document.getElementById('show').value;
+				console.log(left);
+			}
+		}
+
+		function apendOp(op) {
+			operator = op;
+			right = left;
+			console.log(right);
+			left = '';
+			document.getElementById('show').value = right+ operator;
+		}
+
+		function calculate() {
+			let result;
+
+			if (operator == '+') {
+				result = parseFloat(left) + parseFloat(right);
+			} else if (operator == '-') {
+				result = parseFloat(left) - parseFloat(right);
+			} else if (operator == '*') {
+				result = parseFloat(left) * parseFloat(right);
+			} else if (operator == '/') {
+				result = parseFloat(left) / parseFloat(right);
+			}
+			document.getElementById('show').value = result;
+			left = result;
+			right = '';
+			operator = '';
+			console.log("l: " + left);
+			console.log("r: " + right);
+			console.log("o: " + operator);
+		}
+
+	
+
+        </script>
+    </head>
+    <body>
+		<div id="calculator">
+			<div class="row">
+				<input type="text" id="show"></input>
+				<button class="btn" onclick="clearInput()">c</button>
+			</div>
+			<div class="row">
+				  <button class="btn" onclick="display('1')">1</button>
+                		  <button class="btn" onclick="display('2')">2</button>
+                		  <button class="btn" onclick="display('3')">3</button>
+                		  <button class="btn arithmeticOperator" onclick="apendOp('/')">/</button>
+			</div>
+			<div class="row">
+				  <button class="btn" onclick="display('4')">4</button>
+                		  <button class="btn" onclick="display('5')">5</button>
+                		  <button class="btn" onclick="display('6')">6</button>
+                		  <button class="btn arithmeticOperator" onclick="apendOp('*')">*</button>
+			</div>
+			<div class="row">
+				  <button class="btn" onclick="display('7')">7</button>
+                		  <button class="btn" onclick="display('8')">8</button>
+                		  <button class="btn" onclick="display('9')">9</button>
+                		  <button class="btn arithmeticOperator" onclick="apendOp('-')">-</button>
+			</div>
+			<div class="row">
+				  <button class="btn" onclick="display('0')">0</button>
+                		  <button class="btn" onclick="display('.')">.</button>
+                		  <button class="btn" onclick="calculate()">=</button>
+                		  <button class="btn arithmeticOperator" onclick="apendOp('+')">+</button>
+			</div>
+
+		</div>
+    </body>
+</html>
+

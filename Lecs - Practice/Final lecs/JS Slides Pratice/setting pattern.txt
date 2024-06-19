@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+</head>
+<body>
+    <form action="/submit-form" method="post">
+        <label for="number">Enter number (format: 123-456-789):</label>
+        <input type="text" id="number" name="number" pattern="\d{3}-\d{3}-\d{3}" 
+               title="Number must be in the format 123-456-789" required>
+        <br><br>
+
+        <label for="currency">Enter currency code (e.g., USD):</label>
+        <input type="text" id="currency" name="currency" pattern="[A-Z]{3}" 
+               title="Currency code must be 3 uppercase letters" required>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+/*
+To implement pattern restrictions in HTML forms, you can use the pattern attribute within your input elements. This attribute allows you to specify a regular expression (regex) that the input must match to be considered valid. Let's break down your requirements into two parts and create the appropriate patterns for each:
+
+1. Number Pattern (123-456-789): This pattern is commonly used for phone numbers or ID formats. It consists of groups of three digits separated by hyphens.
+2. Currency Code Pattern (e.g., PKR, USD): This pattern restricts the input to exactly three uppercase letters, which is typical for international currency codes.
+HTML Form with Pattern Examples
+Here’s how you can set up an HTML form with these patterns:
+
+
+Explanation of the Regex Patterns:
+1. Number Pattern (\d{3}-\d{3}-\d{3}):
+\d{3}: Matches exactly three digits.
+-: A literal hyphen.
+This pattern is repeated for three groups of digits.
+2. Currency Code Pattern ([A-Z]{3}):
+[A-Z]: Matches any uppercase letter from A to Z.
+{3}: Ensures that exactly three letters are entered.
+
+Validation Behavior
+Pattern attribute: When a user tries to submit the form with an input that doesn't match the specified pattern, the browser will block the form submission and display a tooltip with the error message provided in the title attribute.
+Required attribute: This ensures that the user cannot leave the field empty.
+This setup provides client-side validation, which enhances user experience by providing immediate feedback. However, always ensure that you also perform server-side validation to protect against malformed or malicious data submissions.
+
+*/

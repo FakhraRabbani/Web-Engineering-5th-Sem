@@ -1,0 +1,9 @@
+<html>
+	<head>
+		<title>Practice</title>
+	</head>
+	<body bgcolor="black">
+		<h1>Heading 1</h1>
+		<p>Paragraph<br><b>Hello World</b></p>
+	</body>
+</html>

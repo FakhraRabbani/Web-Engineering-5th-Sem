@@ -1,0 +1,49 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+
+public class FileContentMatcher {
+    public static void main(String[] args) {
+        String file1 = "file1.txt"; // Replace with the first file name
+        String file2 = "file2.txt"; // Replace with the second file name
+
+        try {
+            Set<String> wordsFile1 = getWordsFromFile(file1);
+            Set<String> wordsFile2 = getWordsFromFile(file2);
+
+            int matchedWords = 0;
+            for (String word : wordsFile1) {
+                if (wordsFile2.contains(word)) {
+                    matchedWords++;
+                }
+            }
+
+            int totalWords = Math.max(wordsFile1.size(), wordsFile2.size());
+
+            double percentageMatched = ((double) matchedWords / totalWords) * 100;
+
+            System.out.printf("Percentage of matched words: %.2f%%\n", percentageMatched);
+
+        } catch (IOException e) {
+            System.err.println("Error reading files: " + e.getMessage());
+        }
+    }
+
+    private static Set<String> getWordsFromFile(String filename) throws IOException {
+        Set<String> words = new HashSet<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] lineWords = line.trim().split("\\s+");
+                for (String word : lineWords) {
+                    words.add(word.toLowerCase()); // Convert to lowercase to ignore case sensitivity
+                }
+            }
+        }
+
+        return words;
+    }
+}

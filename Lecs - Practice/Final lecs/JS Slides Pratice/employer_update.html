@@ -1,0 +1,226 @@
+<html>
+    <head>
+        <title>Employer page</title>
+
+        <style>
+            .error{
+                color:red;
+            }
+        </style>
+
+        <script type="text/JavaScript">
+            function validate(){
+
+                let valid = true; //Setting a flag
+
+                // Reset error messages
+                document.getElementById('errorUname').textContent = '';
+                document.getElementById('errorPwd').textContent = '';
+                document.getElementById('errorCpwd').textContent = '';
+                document.getElementById('errorGender').textContent = '';
+                document.getElementById('errorAddress').textContent = '';
+                document.getElementById('errorCity').textContent = '';
+                document.getElementById('errorCountry').textContent = '';
+                document.getElementById('errorPhone').textContent = '';
+                document.getElementById('errorEmail').textContent = '';
+
+                if(document.employerform.uname.value == "")
+                {
+                    document.getElementById("errorUname").textContent = "Enter user name!";
+                    valid = false;
+                }
+
+                if(document.employerform.pwd.value == "")
+                {
+                    document.getElementById("errorPwd").textContent = "Password is empty!";
+                    document.employerform.pwd.focus();
+                    valid = false;
+                }
+
+                if(document.employerform.cpwd.value != document.employerform.pwd.value)
+                {
+                    document.getElementById("errorCpwd").textContent = "Confirm password doesnt match";
+                    document.employerform.cpwd.focus();
+                    valid = false;
+                }
+
+                if(!document.employerform.gender[0].checked && !document.employerform.gender[1].checked)
+                {
+                    document.getElementById("errorGender").textContent = "Chose a gender";
+                    valid = false;
+                }
+			
+	            if(document.employerform.address1.value == "" )
+	            {	
+                    document.getElementById("errorAddress").textContent = "Address is empty!!";
+			        valid = false;
+	            }
+			
+	            if(document.employerform.city.value == "" )
+	            {		
+                    document.getElementById("errorCity").textContent = "City is empty!";
+                    valid = false;
+	            }
+
+	            if(document.employerform.country.value == "" )
+	            {		
+                    document.getElementById("errorCountry").textContent = "Choose Country!!";
+			        valid = false;
+	            }
+	
+                if(document.employerform.phone.value == "" )
+	            {		
+                    document.getElementById("errorPhone").textContent = "Telephone is empty!!";
+			        valid = false;
+	            }
+			
+	            if(document.employerform.email.value == "" )		
+                {
+                    document.getElementById("errorEmail").textContent = "Please enter email address!!";
+		            valid = false;
+	            }	
+	
+
+                return valid;
+            }
+
+            function letterNumber(event)
+            {
+                var keychar;
+                keychar = event.key;
+                alert(keychar);
+                if((".+-0123456789").indexOf(keychar) > -1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <form name="employerform" onsubmit="return validate()">
+
+            <table>
+                <tr>
+                    <p><font color=blue><b><u>Employers</u></b></font></p>
+                </tr>
+    
+                <tr>
+                    <td align="right">Username:</td>
+                    <td>
+                        <input type="text" name="uname">
+                        <span class="error" id="errorUname"></span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Password:</td>
+                    <td>
+                        <input type="text" name="pwd">
+                        <span class="error" id="errorPwd"></span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Confirm Password:</td>
+                    <td>
+                        <input type="text" name="cpwd">
+                        <span class="error" id="errorCpwd"></span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Gender:</td>
+                    <td>
+                        <input type="radio" name="gender" value="male">Male
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right"></td>
+                    <td>
+                        <input type="radio" name="gender" value="female">Female
+                        <span class="error" id="errorGender"></span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Address:</td>
+                    <td>
+                        <input type="text" name="address1">
+                        <span class="error" id="errorAddress"></span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right"></td>
+                    <td><input type="text" name="address2"></td>
+                </tr>
+    
+                <tr>
+                    <td align="right">City:</td>
+                    <td>
+                        <input type="text" name="city">
+                        <span class="error" id="errorCity"></span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Country:</td>
+                    <td>
+                        <select name="country">
+                        <option value=""></option>
+                        <option value="pakistan">Pakistan</option>
+                        <option value="India">India</option>
+                        </select>
+                        <span class="error" id="errorCountry"></span>
+                    </td>
+                </tr>
+    
+                <tr> 
+                    <td  align="right">Zip:</td> 
+                    <td >
+                        <input type=text name=zip >
+                    </td> 
+                </tr>
+    
+                <tr> 
+                    <td  align="right">Telephone:</td> 
+                    <td >
+                        <input type=text name=phone onkeypress="return letterNumber(event)" >
+                        <span class="error" id="errorPhone"></span>
+                    </td> 
+                </tr>
+    
+                <tr> 
+                    <td  align="right">Fax:</td> 
+                    <td ><input type=text name=fax ></td> 
+                  </tr> 
+                 
+                  <tr> 
+                    <td  align="right">Contact Person:</td> 
+                    <td ><input type=text name=contact_person ></td> 
+                  </tr> 
+                 
+                  <tr> 
+                    <td  align="right">Email:</td> 
+                    <td >
+                        <input typ=text name=email >
+                        <span class="error" id="errorEmail"></span>
+                    </td> 
+                  </tr> 
+        
+                  <tr>
+                    <td align="right"></td>
+                    <td><input type="submit" value="Signup"></td>
+                  </tr>
+    
+            </table>
+        </form>
+        
+    </body>
+</html>
